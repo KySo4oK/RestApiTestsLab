@@ -1,17 +1,17 @@
 import models.FakeEntity;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.when;
+import static org.hamcrest.Matchers.emptyString;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class RestTest {
 
-    private FakeEntity fakeEntity;
+    private final FakeEntity fakeEntity = new FakeEntity(1L, "name");
 
     @Test
     public void testGetFakeEntity() {
-        when()
-                .get("http://localhost:7777/fake")
+        new FakeAPIFakeEndPoint()
+                .getFakeEntity()
                 .then()
                 .statusCode(200)
                 .body(notNullValue());
@@ -19,26 +19,28 @@ public class RestTest {
 
     @Test
     public void testUpdateFakeEntity() {
-        when()
-                .put("http://localhost:7777/fake/1")
+        new FakeAPIFakeEndPoint()
+                .updateFakeEntity(fakeEntity, fakeEntity.getId())
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .body(notNullValue());
     }
 
     @Test
     public void testCreateFakeEntity() {
-        fakeEntity = new FakeEntity(1L, "name");
-        when()
-                .post("http://localhost:7777/fake")
+        new FakeAPIFakeEndPoint()
+                .createFakeEntity(fakeEntity)
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .body(notNullValue());
     }
 
     @Test
     public void testDeleteFakeEntity() {
-        when()
-                .delete("http://localhost:7777/fake/1")
+        new FakeAPIFakeEndPoint()
+                .deleteFakeEntity(1L)
                 .then()
-                .statusCode(204);
+                .statusCode(204)
+                .body(emptyString());
     }
 }
