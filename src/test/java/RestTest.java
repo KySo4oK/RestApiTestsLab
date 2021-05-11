@@ -84,4 +84,12 @@ public class RestTest {
                 .then()
                 .statusCode(400);
     }
+
+    @Test
+    public void testDeleteFakeEntityWithNotNumberId() {
+        new FakeAPIFakeEndPoint()
+                .deleteFakeEntity("notANumber")
+                .then()
+                .statusCode(400);
+    }
 }
