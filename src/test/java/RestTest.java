@@ -92,4 +92,5 @@ public class RestTest {
                 .then()
                 .statusCode(400);
     }
+
 }
