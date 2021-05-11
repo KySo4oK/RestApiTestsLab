@@ -35,6 +35,28 @@ public class RestTest {
     }
 
     @Test
+    public void testUpdateFakeEntityWithEmptyName() {
+        FakeEntity entity = getFakeEntityWithEmptyName();
+        new FakeAPIFakeEndPoint()
+                .updateFakeEntity(entity, fakeEntity.getId())
+                .then()
+                .statusCode(400);
+    }
+
+    @Test
+    public void testCreateFakeEntityWithEmptyName() {
+        FakeEntity entity = getFakeEntityWithEmptyName();
+        new FakeAPIFakeEndPoint()
+                .createFakeEntity(entity)
+                .then()
+                .statusCode(400);
+    }
+
+    private FakeEntity getFakeEntityWithEmptyName() {
+        return new FakeEntity(1L, "");
+    }
+
+    @Test
     public void testCreateFakeEntity() {
         ValidatableResponse response = new FakeAPIFakeEndPoint()
                 .createFakeEntity(fakeEntity)
@@ -49,9 +71,17 @@ public class RestTest {
     @Test
     public void testDeleteFakeEntity() {
         new FakeAPIFakeEndPoint()
-                .deleteFakeEntity(1L)
+                .deleteFakeEntity(String.valueOf(1L))
                 .then()
                 .statusCode(204)
                 .body(emptyString());
+    }
+
+    @Test
+    public void testDeleteFakeEntityWithWrongId() {
+        new FakeAPIFakeEndPoint()
+                .deleteFakeEntity(String.valueOf(-1L))
+                .then()
+                .statusCode(400);
     }
 }

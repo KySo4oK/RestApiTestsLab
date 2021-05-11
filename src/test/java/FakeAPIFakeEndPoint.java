@@ -36,7 +36,7 @@ public class FakeAPIFakeEndPoint {
                 .response();
     }
 
-    public Response deleteFakeEntity(long id) {
+    public Response deleteFakeEntity(String id) {
         return given()
                 .pathParam("id", id)
                 .when()
