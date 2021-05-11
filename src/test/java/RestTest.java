@@ -1,16 +1,21 @@
 import io.restassured.response.ValidatableResponse;
 import models.FakeEntity;
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Title;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.emptyString;
 
+@RunWith(SerenityRunner.class)
 public class RestTest {
 
     private final FakeEntity fakeEntity = new FakeEntity(1L, "name");
 
     @Test
+    @Title("Verification of get request")
     public void testGetFakeEntity() {
         ValidatableResponse response = new FakeAPIFakeEndPoint()
                 .getFakeEntity()
@@ -23,6 +28,7 @@ public class RestTest {
     }
 
     @Test
+    @Title("Verification of put request")
     public void testUpdateFakeEntity() {
         ValidatableResponse response = new FakeAPIFakeEndPoint()
                 .updateFakeEntity(fakeEntity, fakeEntity.getId())
@@ -35,6 +41,7 @@ public class RestTest {
     }
 
     @Test
+    @Title("Verification of not valid put request")
     public void testUpdateFakeEntityWithEmptyName() {
         FakeEntity entity = getFakeEntityWithEmptyName();
         new FakeAPIFakeEndPoint()
@@ -44,6 +51,7 @@ public class RestTest {
     }
 
     @Test
+    @Title("Verification of not valid post request")
     public void testCreateFakeEntityWithEmptyName() {
         FakeEntity entity = getFakeEntityWithEmptyName();
         new FakeAPIFakeEndPoint()
@@ -57,6 +65,7 @@ public class RestTest {
     }
 
     @Test
+    @Title("Verification of valid post request")
     public void testCreateFakeEntity() {
         ValidatableResponse response = new FakeAPIFakeEndPoint()
                 .createFakeEntity(fakeEntity)
@@ -69,6 +78,7 @@ public class RestTest {
     }
 
     @Test
+    @Title("Verification of valid delete request")
     public void testDeleteFakeEntity() {
         new FakeAPIFakeEndPoint()
                 .deleteFakeEntity(String.valueOf(1L))
@@ -78,6 +88,7 @@ public class RestTest {
     }
 
     @Test
+    @Title("Verification of not valid delete request")
     public void testDeleteFakeEntityWithWrongId() {
         new FakeAPIFakeEndPoint()
                 .deleteFakeEntity(String.valueOf(-1L))
@@ -86,6 +97,7 @@ public class RestTest {
     }
 
     @Test
+    @Title("Verification of not valid delete request, which fails with 500")
     public void testDeleteFakeEntityWithNotNumberId() {
         new FakeAPIFakeEndPoint()
                 .deleteFakeEntity("notANumber")
