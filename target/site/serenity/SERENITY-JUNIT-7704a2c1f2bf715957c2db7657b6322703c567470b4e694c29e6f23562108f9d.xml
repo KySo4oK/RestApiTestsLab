@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="RestTest" skipped="0" tests="8" time="1.91" timestamp="2021-05-12 01:24:21"><testcase classname="RestTest" name="Verification of not valid post request"/><testcase classname="RestTest" name="Verification of get request"/><testcase classname="RestTest" name="Verification of not valid delete request"/><testcase classname="RestTest" name="Verification of valid delete request"/><testcase classname="RestTest" name="Verification of put request"/><testcase classname="RestTest" name="Verification of not valid delete request, which fails with 500"><failure message="1 expectation failed.&#10;Expected status code &lt;400&gt; but was &lt;500&gt;.&#10;" type="java.lang.AssertionError">1 expectation failed.
+Expected status code &lt;400&gt; but was &lt;500&gt;.
+</failure><system-err>1 expectation failed.
+Expected status code &lt;400&gt; but was &lt;500&gt;.
+
+io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
+io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:126)
+io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:134)
+io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
+io.restassured.internal.ValidatableResponseImpl.super$2$statusCode(ValidatableResponseImpl.groovy)
+groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)
+io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:142)
+io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy)
+RestTest.testDeleteFakeEntityWithNotNumberId(RestTest.java:105)
+</system-err></testcase><testcase classname="RestTest" name="Verification of not valid put request"/><testcase classname="RestTest" name="Verification of valid post request"/></testsuite>

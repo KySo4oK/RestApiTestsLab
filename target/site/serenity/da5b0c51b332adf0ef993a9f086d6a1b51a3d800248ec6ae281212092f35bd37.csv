@@ -1,0 +1,2 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Rest test","Verification of not valid delete request, which fails with 500","FAILURE","2021-05-12T01:24:23.853+03:00[Europe/Kiev]","0.0","0.04"

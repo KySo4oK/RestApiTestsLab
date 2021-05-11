@@ -1,0 +1,8 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Rest test","Verification of not valid post request","SUCCESS","2021-05-12T01:24:21.972+03:00[Europe/Kiev]","0.0","1.51"
+"Rest test","Verification of get request","SUCCESS","2021-05-12T01:24:23.533+03:00[Europe/Kiev]","0.0","0.2"
+"Rest test","Verification of not valid delete request","SUCCESS","2021-05-12T01:24:23.737+03:00[Europe/Kiev]","0.0","0.04"
+"Rest test","Verification of valid delete request","SUCCESS","2021-05-12T01:24:23.781+03:00[Europe/Kiev]","0.0","0.04"
+"Rest test","Verification of put request","SUCCESS","2021-05-12T01:24:23.825+03:00[Europe/Kiev]","0.0","0.03"
+"Rest test","Verification of not valid put request","SUCCESS","2021-05-12T01:24:23.908+03:00[Europe/Kiev]","0.0","0.02"
+"Rest test","Verification of valid post request","SUCCESS","2021-05-12T01:24:23.935+03:00[Europe/Kiev]","0.0","0.03"
