@@ -55,5 +55,4 @@ public class FakeAPIFakeEndPoint {
                 .baseUri(Config.FAKE_API_BASE_URL)
                 .contentType(ContentType.JSON);
     }
-
 }
